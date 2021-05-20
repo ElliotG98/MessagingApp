@@ -23,11 +23,13 @@ const io = socketio(server)
 
 //Will be triggered every time a new connection to the socket gets established
 io.on('connection', socket => {
-  console.log("New connection")
-
   socket.username = "Incognito"
-
   socket.on('change_username', data => {
     socket.username = data.username
+  })
+
+  //handle new message from client sent to all users connected to the server
+  socket.on('new_message', data => {
+    io.sockets.emit('receive_message', {message: data.message, username: socket.username})
   })
 })

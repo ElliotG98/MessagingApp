@@ -6,3 +6,9 @@ The idea is for this simple chatroom to allow users to communicate with other co
 Features:
 - Set username
 - send messages
+- See when a user is typing
+
+ToDo:
+-Improve design
+-Save messages
+-Allow access message history
